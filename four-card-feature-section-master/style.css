@@ -5,44 +5,126 @@
 }
 body {
     height: 100vh;
+    width: 100vw;
     display: flex;
     flex-direction: column;
+    /* justify-content: center; */
     gap: 40px;
+    padding: 50px 20px;
+    font-family: Poppins, sans-serif;
+    background-color: hsl(0, 0%, 100%);
 }
 header {
+    position: relative;
     text-align: center;
+    width: 47%;
+    margin: 0 auto;
+}
+
+header h1 {
+    color: hsl(212, 6%, 44%);
+    font-weight: 200;
+}
+header span {
+    display: block;
+    color: hsl(234, 12%, 34%);
+    font-weight: 600;
+}
+
+header p {
+    font-weight: 400;
+    color: hsl(234, 12%, 34%);
 }
 main {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto auto;
     grid-template-areas: 
         "supervisor team-builder calculator"
         "supervisor karma calculator";
-    gap: 20px;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
-.card
+.card {
+    min-height: 200px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    background-color: hsl(0, 0%, 100%);
+}
+.card h2 {
+    color: hsl(234, 12%, 34%);
+    font-weight: 600;
+}
+.card p {
+    font-size: 15px;
+    color: hsl(234, 12%, 34%);
+    font-weight: 200;
+}
+.card img {
+    width: 2.5rem;
+    align-self: flex-end;
+}
 .supervisor {
-    border: 2px solid cadetblue;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    grid-column-start: 1;
-    grid-column-end: 3;
+    border-top: 2px solid cadetblue;
     grid-area: supervisor;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    padding: 20px;
+    margin: auto 0;
 }
 .team-builder {
-    border: 2px solid red;
-    grid-column-start: 2;
-    grid-column-end: 4;
-    grid-row-start: 1;
-    grid-row-end: 1;
+    border-top: 2px solid hsl(0, 78%, 62%);
     grid-area: team-builder;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    padding: 20px;
 }
 .karma {
-    border: 2px solid yellow;
+    border-top: 2px solid yellow;
     grid-area: karma;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    padding: 20px;
 }
 .calculator {
-    border: 2px solid blue;
+    border-top: 2px solid blue;
     grid-area: calculator;
+    margin: auto 0;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    padding: 20px;
+}
+footer {
+    margin: 50px auto;
+}
+@media (max-width: 768px) {
+    /* Header and header->paragraph styles */
+    header  {
+        width: 60%;
+        p {
+            width: 75%;
+            margin: 0 auto;
+        }
+    }
+
+    main {
+        grid-template-areas:
+        "supervisor"
+        "team-builder"
+        "calculator"
+        "karma";
+        grid-template-columns: 1fr;
+        
+        .card {
+            width: 55%;
+            margin: 0 auto;
+            
+        }
+    }
 }
